@@ -400,9 +400,26 @@ KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Werror -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
-		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -std=gnu89
+
+# GCC-4.9
+KBUILD_CFLAGS   += \
+		   -Wno-maybe-uninitialized -Wno-implicit-function-declaration
+# GCC-5.x
+KBUILD_CFLAGS   += \
+           -Wno-error=uninitialized -Wno-error=discarded-array-qualifiers -Wno-error=return-local-addr
+# GCC-6.x
+KBUILD_CFLAGS   += \
+           -Wno-error=unused-const-variable -Wno-error=misleading-indentation \
+           -Wno-error=bool-compare -Wno-error=array-bounds -Wno-error=maybe-uninitialized
+
+#           -Wno-error=unused-const-variable
+# GCC-7.x
+#KBUILD_CFLAGS   += \
+#           -Wno-error=format-truncation -Wno-error=duplicate-decl-specifier -Wno-error=bool-operation \
+#           -Wno-error=parentheses -Wno-error=memset-elt-size -Wno-error=switch-unreachable -Wno-error=format-overflow \
+#           -Wno-error=int-in-bool-context
 
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
