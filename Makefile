@@ -412,9 +412,8 @@ KBUILD_CFLAGS   += \
 # GCC-6.x
 KBUILD_CFLAGS   += \
            -Wno-error=unused-const-variable -Wno-error=misleading-indentation \
-           -Wno-error=bool-compare -Wno-error=array-bounds -Wno-error=maybe-uninitialized
-
-#           -Wno-error=unused-const-variable
+           -Wno-error=bool-compare -Wno-error=array-bounds -Wno-error=maybe-uninitialized \
+           -Wno-error=tautological-compare -Wno-error=unused-const-variable
 # GCC-7.x
 #KBUILD_CFLAGS   += \
 #           -Wno-error=format-truncation -Wno-error=duplicate-decl-specifier -Wno-error=bool-operation \
